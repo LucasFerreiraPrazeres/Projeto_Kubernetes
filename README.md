@@ -31,7 +31,7 @@
       ReadWriteOnce. A PVC deverá se vincular (fazer Bound) com a PV corretamente.
       Por fim, crie um novo Deployment no namespace "virtualizacao" que monta o
       volume criado no diretório /tmp/data. Os pods do deployment devem rodar a
-      imagem httpd:2.4.41-alpine
+      imagem httpd:2.4.41-alpine.
       
  - [ ] Realize o backup do etcd no nó control plane do cluster e salve ele no arquivo
       /tmp/etcd-backup.db. Em seguida, crie um pod usando a imagem
