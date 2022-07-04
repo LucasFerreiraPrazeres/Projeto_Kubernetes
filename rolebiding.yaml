@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: processor
+  namespace: virtualizacao
+roleRef:
+  kind: Role
+  name: processor
+subjects:
+- kind: ServiceAccount
+  name: processor
+  

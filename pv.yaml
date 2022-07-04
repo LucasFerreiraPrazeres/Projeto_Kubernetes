@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: virt-pv
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  claimRef:
+    name: virt-pvc
+    namespace: virtualizacao
+  hostPath:
+    path: /Volumes/data

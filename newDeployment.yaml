@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: novo-deployment
+  namespace: virtualizacao
+  creationTimestamp: null
+  labels:
+    app: deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy
+    spec:
+      containers:
+      - name: httpd
+        image: httpd:2.4.41-alpine
+        volumeMounts:
+        - mountPath: /tmp/data
+          name: dados
+      volumes:
+      - name: dados
+        persistentVolumeClaim:
+          claimName: virt-pvc
