@@ -6,14 +6,14 @@
     
 ### **Tasks**
   
- - [ ] Crie um Pod da imagem httpd:2.4.41-alpine no namespace default. O Pod deve ser
+ - [x] Crie um Pod da imagem httpd:2.4.41-alpine no namespace default. O Pod deve ser
       nomeado pod1 o container deve ter o nome pod1-container. O Pod deverá ser
       somente agendado no nó master (control-plane). Não adicione novos labels em
       nenhum dos nós existentes e nem use nodeName no pod. Explique a razão pelo
       qual o pod não é agendado inicialmente no nó master (apenas nos workers) e o
       que precisou ser feito para fazer ele ser agendado no master.
 
-- [ ] Crie um namespace chamado "virtualizacao". Nele, crie um Deployment chamado
+- [x] Crie um namespace chamado "virtualizacao". Nele, crie um Deployment chamado
       "deploy-importante" com o label "id=muito-importante" (os pods devem também
       ter esse label) e 3 réplicas. O pod deve conter dois containers, o primeiro container
       chamado "container1" usando a imagem nginx:1.17.6-alpine e o segundo container
@@ -23,7 +23,7 @@
       terceira réplica não deverá ser agendado (permanecerá no estado Pending), até
       que um novo nó seja adicionado.
 
-- [ ] Crie um novo PersistentVolume chamado virt-pv. Ele deve ter a capacidade de
+- [x] Crie um novo PersistentVolume chamado virt-pv. Ele deve ter a capacidade de
       2GB, modo de acesso ReadWriteOnce e apontar para o diretório local usando
       hostPath para /Volumes/data.
       Em seguida, crie uma nova PersistentVolumeClaim no namespace "virtualizacao"
@@ -44,12 +44,12 @@
       [nome-container] sh". Para saber o nome do container referente ao control plane,
       use o comando "docker ps -a".
       
- - [ ] Crie uma nova ServiceAccount "processor" no namespace "virtualizacao". Crie uma
+ - [x] Crie uma nova ServiceAccount "processor" no namespace "virtualizacao". Crie uma
       Role e RoleBinding, ambos também chamados "processor". Esse roles devem
       permitir que a nova ServiceAccount tenha acesso apenas à criação de Secrets e
       ConfigMaps no referido namespace.
       
- - [ ] Instale, usando charts Helm, duas aplicações: wordpress e mysql, no namespace
+ - [x] Instale, usando charts Helm, duas aplicações: wordpress e mysql, no namespace
       virtualizacao. Adicione a ambos os deployments o label "app="wp-virt" (utilizando
       o values.yaml dos charts). Em seguida, suponha que um invasor conseguiu acessar
       todo o seu cluster a partir de um pod criado no deployment "deploy-importante"
